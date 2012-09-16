@@ -30,7 +30,7 @@ def run():
         return
     dots = len(cwd) - found - 1
     dots = "/".join([".." for i in xrange(dots)])
-    subprocess.call(" cd %s && ls " % dots, shell = True)
+    return dots
 
 if __name__ == '__main__':
-    run()
+    print (run())
