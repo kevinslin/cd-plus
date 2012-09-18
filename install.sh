@@ -1,13 +1,11 @@
-export cdPlusDir=`pwd`
-echo $cdPlusDir
+#!/usr/bin/env bash
 
-# Symlink to ~/.cd+ if installing from another path
-if [ "$cdPlusDir" != "$HOME/.cd+" ]; then
-  ln -fs "$cdPlusDir" "$HOME/.cd+"
-fi
+export cdPlusDir=`pwd`
+
 
 # This loads cd+ into the shell session.
 exec_string="[ -s \"$HOME/.cd+/bin/cd+.sh\" ] && source \"$HOME/.cd+/bin/cd+.sh\""
+
 
 # Add line to bashrc and zshrc if not already present.
 for rc in bashrc zshrc; do
@@ -16,5 +14,20 @@ for rc in bashrc zshrc; do
         printf "== Added cd+ to '~/.$rc'\n"
     fi
 done
+
+# Default Install Directory
+if [[ ${UID} -eq 0 ]]; then
+    local=
+    prefix=/usr
+else
+    local=true
+    prefix=~/.cd+
+fi
+
+# INSTALLATION
+# Symlink to ~/.cd+ if installing from another path
+if [ "$cdPlusDir" != "$HOME/.cd+" ]; then
+  ln -fs "$cdPlusDir" "$HOME/.cd+"
+fi
 
 echo "=== source ~/.bashrc or ~/.zshrc to load cd+"
