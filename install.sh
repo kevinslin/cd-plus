@@ -25,7 +25,6 @@ else
 fi
 
 # INSTALLATION
-# Symlink to ~/.cd+ if installing from another path
 if [ "$cdPlusDir" != "$HOME/.cd+" ]; then
   ln -fs "$cdPlusDir" "$HOME/.cd+"
 fi
