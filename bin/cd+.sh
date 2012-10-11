@@ -5,5 +5,5 @@ if [ "$BASH_VERSION" ] && [ -n "$PS1" ] && echo $SHELLOPTS | grep -v posix >>/de
     fi
 elif [ "$ZSH_VERSION" ] && [ -n "$PS1" ]; then
     #TODO: add zsh version
-    echo "zsh installation coming soon!"
+    source ~/.cd+/bin/cd+.zsh
 fi

@@ -28,5 +28,3 @@ function d {
         false
     fi
 }
-
-complete -F _cd+ d
