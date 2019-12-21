@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python3
 import argparse
 import os
 import subprocess
@@ -29,7 +29,7 @@ def run():
     except ValueError:
         return
     dots = len(cwd) - found - 1
-    dots = "/".join([".." for i in xrange(dots)])
+    dots = "/".join([".." for i in range(dots)])
     return dots
 
 if __name__ == '__main__':
